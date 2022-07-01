@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #E5D1D0;
+
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .item {
+            padding: 50px;
+
+            background-color: #839788;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+        }
+
+        .item {
+            transition: all 0.1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="reset">Reset</button>
+    <button class="stop">Stop</button>
+    <button class="slow">Slow</button>
+    <button class="normal">Normal</button>
+    <button class="fast">Fast</button>
+    <div class="item"></div>
+</body>
+<script>
+    let slow = document.querySelector(".slow")
+    let normal = document.querySelector(".normal")
+    let fast = document.querySelector(".fast")
+    let item = document.querySelector(".item");
+    let stop = document.querySelector(".stop")
+    let reset = document.querySelector(".reset")
+    let array = [slow, normal, fast]
+    function disableButtons() {
+        array.forEach(item => {
+            item.setAttribute("disabled", "disabled")
+        })
+    }
+    let changePosition = () => {
+        let randomHeight = document.body.clientHeight * Math.random()
+        let randomWidth = document.body.clientWidth * Math.random();
+
+        item.style.left = `${randomWidth}px`;
+        item.style.top = `${randomHeight}px`;
+    }
+    let handle;
+
+    stop.addEventListener("click", () => {
+        clearInterval(handle);
+    })
+    slow.addEventListener("click", () => {
+        handle = setInterval(changePosition, 1500);
+        disableButtons()
+    })
+    normal.addEventListener("click", () => {
+        handle = setInterval(changePosition, 700);
+        disableButtons()
+    })
+    fast.addEventListener("click", () => {
+        handle = setInterval(changePosition, 100);
+        disableButtons()
+    })
+    reset.addEventListener("click", () => {
+        clearInterval(handle);
+        item.style.left = `50%`;
+        item.style.top = "50%";
+        array.forEach(item => {
+            item.removeAttribute("disabled")
+        })
+    })
+    item.addEventListener("click", () => {
+        clearInterval(handle);
+    })
+
+
+
+</script>
+
+</html>

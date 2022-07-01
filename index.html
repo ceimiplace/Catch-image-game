@@ -20,7 +20,8 @@
         }
 
         .item {
-            padding: 50px;
+            height: 100px;
+            width: 100px;
 
             background-color: #839788;
             top: 50%;
@@ -30,6 +31,9 @@
 
         .item {
             transition: all 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -55,6 +59,11 @@
             item.setAttribute("disabled", "disabled")
         })
     }
+    function enableButtons() {
+        array.forEach(item => {
+            item.removeAttribute("disabled")
+        })
+    }
     let changePosition = () => {
         let randomHeight = document.body.clientHeight * Math.random()
         let randomWidth = document.body.clientWidth * Math.random();
@@ -63,32 +72,40 @@
         item.style.top = `${randomHeight}px`;
     }
     let handle;
-
+    function changeItemText() {
+        item.textContent = "Catch me"
+    }
     stop.addEventListener("click", () => {
         clearInterval(handle);
     })
     slow.addEventListener("click", () => {
         handle = setInterval(changePosition, 1500);
-        disableButtons()
+        disableButtons();
+        changeItemText()
+
     })
     normal.addEventListener("click", () => {
         handle = setInterval(changePosition, 700);
-        disableButtons()
+        disableButtons();
+        changeItemText()
     })
     fast.addEventListener("click", () => {
         handle = setInterval(changePosition, 100);
-        disableButtons()
+        disableButtons();
+        changeItemText()
     })
     reset.addEventListener("click", () => {
         clearInterval(handle);
         item.style.left = `50%`;
         item.style.top = "50%";
-        array.forEach(item => {
-            item.removeAttribute("disabled")
-        })
+        enableButtons();
     })
     item.addEventListener("click", () => {
         clearInterval(handle);
+        enableButtons();
+        item.style.left = `50%`;
+        item.style.top = "50%";
+        item.textContent = "Good job"
     })
 
 

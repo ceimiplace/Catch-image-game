@@ -65,8 +65,8 @@
         })
     }
     let changePosition = () => {
-        let randomHeight = Math.floor(document.body.clientHeight * Math.random());
-        let randomWidth = Math.floor(document.body.clientWidth * Math.random());
+        let randomHeight = (Math.floor(document.body.clientHeight * Math.random())) * 0.9;
+        let randomWidth = (Math.floor(document.body.clientWidth * Math.random())) * 0.9;
 
         item.style.left = `${randomWidth}px`;
         item.style.top = `${randomHeight}px`;

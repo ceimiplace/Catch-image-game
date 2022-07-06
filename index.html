@@ -24,8 +24,8 @@
             width: 100px;
 
             background-color: #839788;
-            top: 50%;
-            left: 50%;
+            top: 45%;
+            left: 45%;
             position: absolute;
         }
 
@@ -34,6 +34,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+
+
+        @media screen and (max-width:768px) {
+            .item {
+                height: 75px;
+                width: 75px;
+            }
+        }
+
+        @media screen and (max-width:480px) {
+            .item {
+                height: 50px;
+                width: 50px;
+            }
         }
     </style>
 </head>
@@ -96,15 +112,15 @@
     })
     reset.addEventListener("click", () => {
         clearInterval(handle);
-        item.style.left = `50%`;
-        item.style.top = "50%";
+        item.style.left = `45%`;
+        item.style.top = "45%";
         enableButtons();
     })
     item.addEventListener("click", () => {
         clearInterval(handle);
         enableButtons();
-        item.style.left = `50%`;
-        item.style.top = "50%";
+        item.style.left = `45%`;
+        item.style.top = "45%";
         item.textContent = "Good job"
     })
 

@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #e5d1d0;
+}
+
+.item {
+  height: 100px;
+  width: 100px;
+
+  background-color: #839788;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+
+.item {
+  transition: all 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

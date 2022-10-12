@@ -5,7 +5,7 @@
 body {
   margin: 0;
   background-color: #e5d1d0;
-
+  padding: 10px;
   height: 100vh;
   width: 100vw;
 }
@@ -15,8 +15,8 @@ body {
   width: 50px;
 
   background-color: #839788;
-  top: calc(45% - 25px);
-  left: calc(45% - 25px);
+  top: calc(50% - 35px);
+  left: calc(50% - 35px);
   position: absolute;
 }
 

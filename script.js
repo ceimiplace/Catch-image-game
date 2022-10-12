@@ -5,6 +5,11 @@ let item = document.querySelector(".item");
 let stop = document.querySelector(".stop");
 let reset = document.querySelector(".reset");
 let array = [slow, normal, fast];
+const initialPosition = "calc(50% - 35px)";
+function goToInitialPosition() {
+  item.style.left = initialPosition;
+  item.style.top = initialPosition;
+}
 function disableButtons() {
   array.forEach((item) => {
     item.setAttribute("disabled", "disabled");
@@ -47,14 +52,12 @@ fast.addEventListener("click", () => {
 });
 reset.addEventListener("click", () => {
   clearInterval(handle);
-  item.style.left = `45%`;
-  item.style.top = "45%";
+  goToInitialPosition();
   enableButtons();
 });
 item.addEventListener("click", () => {
   clearInterval(handle);
   enableButtons();
-  item.style.left = `45%`;
-  item.style.top = "45%";
+  goToInitialPosition();
   item.textContent = "Good job";
 });

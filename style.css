@@ -18,6 +18,7 @@ body {
   top: calc(50% - 35px);
   left: calc(50% - 35px);
   position: absolute;
+  text-align: center;
 }
 
 .item {

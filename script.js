@@ -5,7 +5,7 @@ let item = document.querySelector(".item");
 let stop = document.querySelector(".stop");
 let reset = document.querySelector(".reset");
 let array = [slow, normal, fast];
-const initialPosition = "calc(50% - 35px)";
+const initialPosition = "50%";
 function goToInitialPosition() {
   item.style.left = initialPosition;
   item.style.top = initialPosition;
